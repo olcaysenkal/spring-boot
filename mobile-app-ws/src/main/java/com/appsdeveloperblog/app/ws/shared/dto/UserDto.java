@@ -1,6 +1,7 @@
 package com.appsdeveloperblog.app.ws.shared.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDto implements Serializable {
     private static final long serialVersionUID = -2447855234603704321L;
@@ -14,6 +15,8 @@ public class UserDto implements Serializable {
     String encryptedPassword;
     String emailVerificationToken;
     Boolean emailVerificationStatus = false;
+    List<AddressDto> addresses;
+
 
     public String getUserId() {
         return userId;
@@ -85,5 +88,13 @@ public class UserDto implements Serializable {
 
     public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
         this.emailVerificationStatus = emailVerificationStatus;
+    }
+
+    public List<AddressDto> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressDto> addresses) {
+        this.addresses = addresses;
     }
 }
