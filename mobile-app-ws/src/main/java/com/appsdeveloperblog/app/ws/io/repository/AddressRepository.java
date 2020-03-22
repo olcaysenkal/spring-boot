@@ -1,4 +1,4 @@
-package com.appsdeveloperblog.app.ws.io.repositories;
+package com.appsdeveloperblog.app.ws.io.repository;
 
 import com.appsdeveloperblog.app.ws.io.entity.AddressEntity;
 import com.appsdeveloperblog.app.ws.io.entity.UserEntity;
