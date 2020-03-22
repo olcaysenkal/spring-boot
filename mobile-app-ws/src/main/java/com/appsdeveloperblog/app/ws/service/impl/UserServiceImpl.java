@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     public UserDto createUser(UserDto user) {
 
         if (userRepository.findByEmail(user.getEmail())!=null){
-            throw new RuntimeException("Record Already exists");
+            throw new UserServiceException("Record Already exists");
         }
 
         for (AddressDto address: user.getAddresses()) {
@@ -61,6 +61,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUser(String email) {
         UserEntity userEntity = userRepository.findByEmail(email);
+
+        if (userEntity==null){
+            throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+        }
+
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(userEntity,returnValue);
         return returnValue;
